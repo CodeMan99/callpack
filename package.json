@@ -1,0 +1,29 @@
+{
+  "name": "callpack",
+  "version": "1.0.0",
+  "description": "Pack multi-value callback results into a single argument.",
+  "main": "callpack.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeman99/callpack.git"
+  },
+  "keywords": [
+    "async",
+    "callback"
+  ],
+  "author": "Cody A. Taylor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeman99/callpack/issues"
+  },
+  "homepage": "https://github.com/codeman99/callpack#readme",
+  "devDependencies": {
+    "tape": "^4.6.0"
+  }
+}
