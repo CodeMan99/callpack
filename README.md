@@ -24,6 +24,24 @@ Callpack packs values into a simple object when you provide names.
       console.log(result.second); // "Thornton"
     }, 'first', 'second')(null, 'Bill', 'Thornton');
 
+Realistic example use case.
+
+    var async = require('async');
+    var callpack = require('callpack');
+    var fs = require('fs');
+    var request = require('request');
+
+    async.auto({
+      'page': cb => request('http://www.google.com', callpack(cb, 'response', 'body')),
+      'save': ['page', (result, cb) => {
+        if (result.page.response.statusCode == 200) {
+          fs.writeFile('./index.html', result.page.body, cb);
+        } else {
+          cb(result.page.response.statusMessage);
+        }
+      }]
+    });
+
 Reasoning
 ---------
 
