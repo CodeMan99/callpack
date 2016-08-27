@@ -1,4 +1,4 @@
-callpack
+callpack [![Build Status](https://travis-ci.org/CodeMan99/callpack.svg?branch=master)](https://travis-ci.org/CodeMan99/callpack)
 ========
 
 Simply wraps a callback to "pack" multiple values into a single object.
