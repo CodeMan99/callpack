@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codeman99/callpack.git"
+    "url": "git+https://github.com/CodeMan99/callpack.git"
   },
   "keywords": [
     "async",
@@ -20,9 +20,9 @@
   "author": "Cody A. Taylor",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/codeman99/callpack/issues"
+    "url": "https://github.com/CodeMan99/callpack/issues"
   },
-  "homepage": "https://github.com/codeman99/callpack#readme",
+  "homepage": "https://github.com/CodeMan99/callpack#readme",
   "devDependencies": {
     "tape": "^4.6.0"
   }
