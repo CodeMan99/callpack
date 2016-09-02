@@ -3,6 +3,9 @@ var callpack = require('../callpack.js');
 var task = function(something, callback) {
 	setTimeout(callback, 45, null, something, something + 2);
 };
+var fail = function(message, callback) {
+	setTimeout(callback, 45, new Error(message));
+};
 
 test('callpack', t => {
 	t.test('array-like result', st => {
@@ -23,6 +26,14 @@ test('callpack', t => {
 			st.deepEqual(result, {original: 'test1', modified: 'test12'}, 'creates object with two keys');
 			st.end();
 		}, 'original', 'modified'));
+	});
+
+	t.test('preserve errors', st => {
+		fail('preserve', callpack((err, result) => {
+			st.ok(err, 'passed into the callback');
+			st.equal(err.message, 'preserve', 'message is the same');
+			st.end();
+		}));
 	});
 
 	t.end();
