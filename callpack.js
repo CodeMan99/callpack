@@ -9,7 +9,7 @@ module.exports = callpack;
  * @example
  * async.autoInject({
  * 	page: cb => request('http://www.google.com', callpack(cb)),
- *    save: ['page', (page, cb) => fs.writeFile('./index.html', page[1], 'utf8', cb)]
+ * 	save: ['page', (page, cb) => fs.writeFile('./index.html', page[1], 'utf8', cb)]
  * });
  *
  * @example
