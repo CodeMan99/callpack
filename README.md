@@ -42,6 +42,20 @@ Realistic example use case.
       }]
     });
 
+Promisifying a callback library.
+
+    var callpack = require('callpack');
+    var promisify = require('es6-promisify');
+    var _request = require('request');
+    var request = promisify(function() {
+      var cbIndex = arguments.length - 1;
+      arguments[cbIndex] = callpack(arguments[cbIndex], 'response', 'body');
+
+      _request.apply(_request, arguments);
+    });
+
+    request('http://www.google.com').then(result => console.log(result.body), console.error);
+
 Reasoning
 ---------
 
