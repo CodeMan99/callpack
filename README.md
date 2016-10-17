@@ -51,5 +51,5 @@ function is consumed should be up to the developer, not the library.
 
 Thus callpack doesn't make any assumptions like "multiple values means an array".
 Instead the decision is still up the end developer. You may use the result from
-callpack as array, convert into an array, or use it get an object that closely
-mimics spreading the arguments over a function.
+callpack as array, convert into an array, or use it to get an object that
+closely mimics spreading the arguments over a function.
