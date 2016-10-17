@@ -5,7 +5,7 @@ module.exports = callpack;
  *
  * @param {Function} cb the callback that may accept more than one value argument
  * @param {string[]} [names] create a key for each positional argument
- * @returns {Object} an array-like object if no names specified
+ * @returns {Function} callback wrapper
  * @example
  * async.autoInject({
  * 	page: cb => request('http://www.google.com', callpack(cb)),
