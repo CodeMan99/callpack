@@ -1,6 +1,6 @@
 {
   "name": "callpack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pack multi-value callback results into a single argument.",
   "main": "callpack.js",
   "directories": {
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/CodeMan99/callpack#readme",
   "devDependencies": {
-    "tape": "^4.6.0"
+    "tape": "^4.7.0"
   }
 }
