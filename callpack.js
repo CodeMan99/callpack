@@ -23,14 +23,13 @@ function callpack(cb/*, ...names*/) {
 
 	return function() {
 		var err = Array.prototype.shift.call(arguments);
-		var a = arguments;
+		var len = Math.min(names.length, arguments.length);
+		var pack = len == 0 ? arguments : {};
 
-		if (names.length > 0 && arguments.length > 0) {
-			arguments = Object.assign.apply(null, names.map(function(name, index) {
-				return {[name]: a[index]};
-			}));
+		for (var i = 0; i < len; ++i) {
+			pack[names[i]] = arguments[i];
 		}
 
-		cb(err, arguments);
+		return cb(err, pack);
 	};
 }
