@@ -28,6 +28,22 @@ test('callpack', t => {
 		}, 'original', 'modified'));
 	});
 
+	t.test('name positional arguments (less names)', st => {
+		task('tst2', callpack((err, result) => {
+			st.error(err, 'did not create an error');
+			st.deepEqual(result, {main: 'tst2'}, 'creates object with one key, dropping an argument');
+			st.end();
+		}, 'main'));
+	});
+
+	t.test('name positional arguments (more names)', st => {
+		task('t3', callpack((err, result) => {
+			st.error(err, 'did not create an error');
+			st.deepEqual(result, {unmod: 't3', processed: 't32'}, 'creates object with two keys, dropping a name');
+			st.end();
+		}, 'unmod', 'processed', 'perfect'));
+	});
+
 	t.test('preserve errors', st => {
 		fail('preserve', callpack((err, result) => {
 			st.ok(err, 'passed into the callback');
