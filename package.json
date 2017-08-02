@@ -15,7 +15,9 @@
   },
   "keywords": [
     "async",
-    "callback"
+    "callback",
+    "pack",
+    "spread"
   ],
   "author": "Cody A. Taylor",
   "license": "ISC",
