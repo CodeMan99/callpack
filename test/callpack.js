@@ -3,6 +3,9 @@ var callpack = require('../callpack.js');
 var task = function(something, callback) {
 	setTimeout(callback, 45, null, something, something + 2);
 };
+var empty = function(callback) {
+	setTimeout(callback, 45, null);
+};
 var fail = function(message, callback) {
 	setTimeout(callback, 45, new Error(message));
 };
@@ -48,6 +51,22 @@ test('callpack', t => {
 		fail('preserve', callpack((err, result) => {
 			st.ok(err, 'passed into the callback');
 			st.equal(err.message, 'preserve', 'message is the same');
+			st.end();
+		}));
+	});
+
+	t.test('callback has no value arguments', st => {
+		empty(callpack((err, result) => {
+			st.error(err, 'did not create an error');
+			st.equal(result && result.length, 0, 'creates an object with no length');
+			st.end();
+		}));
+	});
+
+	t.test('callback has no value arguments (with positional names)', st => {
+		empty(callpack((err, result) => {
+			st.error(err, 'did not create an error');
+			st.equal(result && Object.keys(result).length, 0, 'creates an object with no keys');
 			st.end();
 		}));
 	});
