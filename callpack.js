@@ -26,12 +26,28 @@ function callpack(cb/*, ...names*/) {
 	}
 
 	return function() {
-		var err = Array.prototype.shift.call(arguments);
-		var len = Math.min(names.length, arguments.length);
-		var pack = len == 0 ? arguments : {};
+		var err = arguments[0];
+		var pack = {};
+		var i = 0;
+		var len = arguments.length - 1;
 
-		for (var i = 0; i < len; ++i) {
-			pack[names[i]] = arguments[i];
+		if (names.length > 0) {
+			len = Math.min(len, names.length);
+
+			for (; i < len; ++i) {
+				pack[names[i]] = arguments[i + 1];
+			}
+		} else {
+			Object.defineProperty(pack, 'length', {
+				configurable: true,
+				enumerable: false,
+				value: len,
+				writable: true
+			});
+
+			for (; i < len; ++i) {
+				pack[i] = arguments[i + 1];
+			}
 		}
 
 		return cb(err, pack);
