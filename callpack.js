@@ -19,7 +19,11 @@ module.exports = callpack;
  * });
  */
 function callpack(cb/*, ...names*/) {
-	var names = Array.prototype.slice.call(arguments, 1);
+	var names = [];
+
+	for (var n = 1; n < arguments.length; ++n) {
+		names.push(arguments[n]);
+	}
 
 	return function() {
 		var err = Array.prototype.shift.call(arguments);
