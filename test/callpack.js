@@ -73,3 +73,11 @@ test('callpack', t => {
 
 	t.end();
 });
+
+test('Pack', t => {
+	var Pack = callpack.Pack;
+	var pack = new Pack();
+
+	t.equal(Object.prototype.toString.call(pack), '[object Pack]', 'has a unique toString tag');
+	t.end();
+});

@@ -14,7 +14,7 @@ Callpack packs values into an array-like object by default.
       console.log(result.length);         // 2
       console.log(Array.isArray(result)); // false
       console.log(Array.from(result));    // [1, 2]
-      console.log(result.toString());     // "[object Arguments]"
+      console.log(result.toString());     // "[object Pack]"
     })(null, 1, 2);
 
 Callpack packs values into a simple object when you provide names.

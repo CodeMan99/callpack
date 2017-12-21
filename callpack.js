@@ -1,4 +1,5 @@
 module.exports = callpack;
+module.exports.Pack = Pack;
 
 /**
  * Wrap a callback function to pack all value arguments into a single object.
@@ -27,7 +28,7 @@ function callpack(cb/*, ...names*/) {
 
 	return function() {
 		var err = arguments[0];
-		var pack = {};
+		var pack = new Pack();
 		var i = 0;
 		var len = arguments.length - 1;
 
@@ -53,3 +54,13 @@ function callpack(cb/*, ...names*/) {
 		return cb(err, pack);
 	};
 }
+
+function Pack() {
+}
+
+Object.defineProperty(Pack.prototype, Symbol.toStringTag, {
+	configurable: true,
+	enumerable: false,
+	value: 'Pack',
+	writable: false
+});
