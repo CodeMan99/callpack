@@ -20,10 +20,10 @@ module.exports.Pack = Pack;
  * });
  */
 function callpack(cb/*, ...names*/) {
-	var names = [];
+	var names = new Array(arguments.length - 1);
 
-	for (var n = 1; n < arguments.length; ++n) {
-		names.push(arguments[n]);
+	for (var n = 0; n < names.length; ++n) {
+		names[n] = arguments[n + 1];
 	}
 
 	return function() {
