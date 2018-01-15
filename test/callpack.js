@@ -78,6 +78,11 @@ test('Pack', t => {
 	var Pack = callpack.Pack;
 	var pack = new Pack();
 
-	t.equal(Object.prototype.toString.call(pack), '[object Pack]', 'has a unique toString tag');
+	if (typeof Symbol.toStringTag !== 'undefined') {
+		t.equal(Object.prototype.toString.call(pack), '[object Pack]', 'has a unique toString tag');
+	} else {
+		t.pass('class is defined');
+	}
+
 	t.end();
 });

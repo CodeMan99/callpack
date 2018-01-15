@@ -58,9 +58,11 @@ function callpack(cb/*, ...names*/) {
 function Pack() {
 }
 
-Object.defineProperty(Pack.prototype, Symbol.toStringTag, {
-	configurable: true,
-	enumerable: false,
-	value: 'Pack',
-	writable: false
-});
+if (typeof Symbol.toStringTag !== 'undefined') {
+	Object.defineProperty(Pack.prototype, Symbol.toStringTag, {
+		configurable: true,
+		enumerable: false,
+		value: 'Pack',
+		writable: false
+	});
+}

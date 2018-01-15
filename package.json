@@ -1,6 +1,6 @@
 {
   "name": "callpack",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Pack multi-value callback results into a single argument.",
   "main": "callpack.js",
   "directories": {
