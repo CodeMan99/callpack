@@ -26,8 +26,7 @@ function callpack(cb/*, ...names*/) {
 		names[n] = arguments[n + 1];
 	}
 
-	return function() {
-		var err = arguments[0];
+	return function(err) {
 		var pack = new Pack();
 		var i = 0;
 		var len = arguments.length - 1;
