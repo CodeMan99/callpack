@@ -1,5 +1,5 @@
 var test = require('tape');
-var callpack = require('../callpack.js');
+var callpack = require('..');
 var task = function(something, callback) {
 	setTimeout(callback, 45, null, something, something + 2);
 };

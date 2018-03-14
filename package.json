@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/CodeMan99/callpack#readme",
   "devDependencies": {
-    "tape": "^4.8.0"
+    "tape": "^4.9.0"
   }
 }
